@@ -1,0 +1,372 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+/* ── Flower Canvas — left panel only ── */
+#flowerCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 560px;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Main Grid ── */
+.mother-holder {
+    display: grid;
+    grid-template-columns: 560px 1fr;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ── Left Panel ── */
+.left-panel {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 72px 0 72px;
+    background: linear-gradient(175deg, #fff0f6 0%, #ffe4ef 40%, #ffd6e8 100%);
+    border-right: 1px solid rgba(255, 182, 193, 0.3);
+    box-shadow: 6px 0 40px rgba(255, 150, 180, 0.13);
+    overflow: hidden;
+}
+
+/* Decorative soft circles in background */
+.left-panel::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,182,193,0.18) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.left-panel::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -80px;
+    width: 340px;
+    height: 340px;
+    background: radial-gradient(circle, rgba(255,192,203,0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.left-panel > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Flower deco ── */
+.flower-deco {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+    animation: spin 10s linear infinite;
+    display: inline-block;
+    filter: drop-shadow(0 3px 10px rgba(255,150,180,0.5));
+}
+
+@keyframes spin {
+    0%   { transform: rotate(0deg) scale(1); }
+    50%  { transform: rotate(180deg) scale(1.12); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* ── Welcome text ── */
+.welcome-sign {
+    color: #c8547a;
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.15;
+    letter-spacing: -0.3px;
+}
+
+.welcome-sub {
+    color: #c9a0ac;
+    font-size: 0.84rem;
+    font-weight: 300;
+    margin-bottom: 38px;
+    letter-spacing: 0.4px;
+    line-height: 1.6;
+    border-left: 3px solid rgba(255, 182, 193, 0.5);
+    padding-left: 12px;
+}
+
+/* ── Nav Links ── */
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 15px 22px;
+    border-radius: 16px;
+    font-weight: 500;
+    font-size: 0.92rem;
+    background: rgba(255, 255, 255, 0.65);
+    color: #c8547a;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 200, 215, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.2px;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.nav-btn:hover::before {
+    left: 100%;
+}
+
+.nav-btn:not(.logout-btn):hover {
+    background: linear-gradient(135deg, #e8748f, #c8547a);
+    color: #fff;
+    transform: translateX(8px);
+    border-color: transparent;
+    box-shadow: 0 6px 20px rgba(200, 84, 122, 0.28);
+}
+
+.nav-icon {
+    font-size: 1.1rem;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* ── Logout Button ── */
+.logout-btn {
+    background: transparent !important;
+    color: #c8a8b4 !important;
+    border: 1px solid rgba(200, 168, 180, 0.35) !important;
+    margin-top: 14px;
+    width: 160px;
+    font-size: 0.82rem;
+    padding: 11px 16px;
+    border-radius: 12px !important;
+}
+
+.logout-btn:hover {
+    color: #e05252 !important;
+    border-color: #ffb3b3 !important;
+    background: rgba(255, 245, 245, 0.8) !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* ── Right Panel (Scrollable Gallery) ── */
+.scenery-holder {
+    height: 100vh;
+    overflow-y: auto;
+    padding: 48px 40px;
+    background: linear-gradient(160deg, #fffafb 0%, #fff5f8 100%);
+}
+
+/* ── Image Grid ── */
+.scenery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding: 8px 8px 60px 8px;
+}
+
+/* ── Polaroid wrapper ── */
+.polaroid {
+    background: #fff;
+    padding: 11px 11px 38px 11px;
+    border-radius: 6px;
+    box-shadow:
+        0 4px 16px rgba(255, 182, 193, 0.25),
+        0 1px 4px rgba(200, 100, 130, 0.08);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    cursor: pointer;
+}
+
+/* Alternating slight tilts */
+.polaroid:nth-child(odd)  { transform: rotate(-1.2deg); }
+.polaroid:nth-child(even) { transform: rotate(1deg); }
+
+/* ── Bloom glow ring ── */
+.polaroid::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 6px;
+    background: transparent;
+    box-shadow: 0 0 0 0 rgba(255, 182, 193, 0);
+    transition: box-shadow 0.4s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ── Pink overlay ── */
+.polaroid::after {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    right: 11px;
+    bottom: 38px;
+    border-radius: 6px;
+    background: rgba(255, 150, 180, 0);
+    transition: background 0.35s ease;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) translateY(-10px) scale(1.04) !important;
+    box-shadow:
+        0 16px 40px rgba(255, 133, 161, 0.3),
+        0 4px 12px rgba(216, 112, 147, 0.15);
+    z-index: 10;
+}
+
+.polaroid:hover::before {
+    box-shadow: 0 0 0 3px rgba(255, 182, 193, 0.55),
+                0 0 18px 6px rgba(255, 182, 193, 0.2);
+}
+
+.polaroid:hover::after {
+    background: rgba(255, 150, 180, 0.12);
+}
+
+/* ── Image inside polaroid ── */
+.polaroid .img-wrap {
+    overflow: hidden;
+    border-radius: 6px;
+    position: relative;
+    z-index: 0;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    z-index: 0;
+}
+
+.polaroid:hover img {
+    transform: scale(1.06);
+}
+
+/* ── Polaroid caption strip ── */
+.polaroid-caption {
+    text-align: center;
+    padding-top: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.68rem;
+    color: #e8b0c0;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 400;
+    user-select: none;
+}
+
+/* ── Tape strip decoration ── */
+.polaroid-tape {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 18px;
+    background: rgba(255, 210, 225, 0.55);
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(255, 182, 193, 0.2);
+    z-index: 2;
+}
+
+/* ── Custom Pink Scrollbar ── */
+.scenery-holder::-webkit-scrollbar {
+    width: 7px;
+}
+.scenery-holder::-webkit-scrollbar-track {
+    background: #fff5f8;
+}
+.scenery-holder::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #ffc8d5, #ffb6c1);
+    border-radius: 10px;
+}
+.scenery-holder::-webkit-scrollbar-thumb:hover {
+    background: #ff99b4;
+}
+
+/* ── Staggered polaroid entrance ── */
+.polaroid {
+    animation: fadeUp 0.5s ease both;
+}
+.polaroid:nth-child(1) { animation-delay: 0.05s; }
+.polaroid:nth-child(2) { animation-delay: 0.10s; }
+.polaroid:nth-child(3) { animation-delay: 0.15s; }
+.polaroid:nth-child(4) { animation-delay: 0.20s; }
+.polaroid:nth-child(5) { animation-delay: 0.25s; }
+.polaroid:nth-child(6) { animation-delay: 0.30s; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Left panel entrance animation ── */
+.left-panel .flower-deco,
+.left-panel .welcome-sign,
+.left-panel .welcome-sub,
+.left-panel .nav-btn {
+    animation: slideIn 0.5s ease both;
+}
+
+.left-panel .flower-deco          { animation-delay: 0.05s; }
+.left-panel .welcome-sign         { animation-delay: 0.12s; }
+.left-panel .welcome-sub          { animation-delay: 0.18s; }
+.left-panel .nav-btn:nth-child(1) { animation-delay: 0.24s; }
+.left-panel .nav-btn:nth-child(2) { animation-delay: 0.30s; }
+.left-panel .nav-btn:nth-child(3) { animation-delay: 0.36s; }
+.left-panel .nav-btn:nth-child(4) { animation-delay: 0.42s; }
+.left-panel .nav-btn:nth-child(5) { animation-delay: 0.48s; }
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-18px); }
+    to   { opacity: 1; transform: translateX(0); }
+}

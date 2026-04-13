@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style/homeRates/home.css') }}">
+    <style>
+        /* Clickable polaroid styles */
+        .polaroid-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+ 
+        .polaroid-link .polaroid {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+ 
+        .polaroid-link:hover .polaroid {
+            transform: scale(1.05) rotate(-1deg);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+        }
+ 
+        .polaroid-link:active .polaroid {
+            transform: scale(0.97);
+        }
+    </style>
+</head>
+<body>
+ 
+    <!-- Flower animation canvas (left panel only) -->
+    <canvas id="flowerCanvas"></canvas>
+ 
+    <div class="auth-box home-holder">
+        <div class="mother-holder">
+ 
+            <!-- LEFT PANEL -->
+            <div class="left-panel">
+                <div class="flower-deco">🌸</div>
+                <h1 class="welcome-sign">Welcome, {{ name }}!</h1>
+                <p class="welcome-sub">You have successfully logged into your dashboard.</p>
+ 
+                <nav class="nav-links">
+                    <a href="{{ url_for('search') }}" class="nav-btn search-btn">
+                        <span class="nav-icon">🔍</span> Search
+                    </a>
+                    <a href="{{ url_for('calendar', name=name) }}" class="nav-btn calendar-btn">
+                        <span class="nav-icon">📅</span> Calendar
+                    </a>
+                    <a href="{{ url_for('rates') }}" class="nav-btn rate-btn">
+                        <span class="nav-icon">📊</span> Passing Rate
+                    </a>
+                    <a href="{{ url_for('deans') }}" class="nav-btn deans-btn">
+                        <span class="nav-icon">🎓</span> Deans and Instructors
+                    </a>
+                    <a href="/logout" class="nav-btn logout-btn"><span class="nav-icon">🚪</span> Logout</a>
+                </nav>
+            </div>
+ 
+            <!-- RIGHT PANEL -->
+            <div class="scenery-holder">
+                <div class="scenery">
+ 
+                    <a href="{{ url_for('dept_exact') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/Exact.jpg') }}" alt="Exact">
+                            </div>
+                            <p class="polaroid-caption">🌸 Exact Collages of Asia</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_education') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/educ.jpg') }}" alt="Education">
+                            </div>
+                            <p class="polaroid-caption">🌸 Education Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_criminology') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/criminology.jpg') }}" alt="Criminology">
+                            </div>
+                            <p class="polaroid-caption">🌸 Criminology Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_nstp') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/nstp.jpg') }}" alt="NSTP">
+                            </div>
+                            <p class="polaroid-caption">🌸 National Service Training Program</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_is') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/system.jpg') }}" alt="System">
+                            </div>
+                            <p class="polaroid-caption">🌸 Information System Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_business') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/Business.jpg') }}" alt="Business">
+                            </div>
+                            <p class="polaroid-caption">🌸 Business Administration Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_nursing') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/Nursing.jpg') }}" alt="Nursing">
+                            </div>
+                            <p class="polaroid-caption">🌸 Nursing Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_tourism') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/Tourism.jpg') }}" alt="Tourism">
+                            </div>
+                            <p class="polaroid-caption">🌸 Tourism Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_maritime') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/Maritime.jpg') }}" alt="Maritime">
+                            </div>
+                            <p class="polaroid-caption">🌸 Maritime Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_gas') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/gas.jpg') }}" alt="GAS">
+                            </div>
+                            <p class="polaroid-caption">🌸 GAS Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_humss') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/humms.png') }}" alt="HUMSS">
+                            </div>
+                            <p class="polaroid-caption">🌸 HUMSS Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_stem') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/stem.jpg') }}" alt="STEM">
+                            </div>
+                            <p class="polaroid-caption">🌸 STEM Department</p>
+                        </div>
+                    </a>
+ 
+                    <a href="{{ url_for('dept_abm') }}" class="polaroid-link">
+                        <div class="polaroid">
+                            <div class="polaroid-tape"></div>
+                            <div class="img-wrap">
+                                <img src="{{ url_for('static', filename='img/homepage/abm.jpg') }}" alt="ABM">
+                            </div>
+                            <p class="polaroid-caption">🌸 ABM Department</p>
+                        </div>
+                    </a>
+ 
+                </div>
+            </div>
+ 
+        </div>
+    </div>
+ 
+    <script src="{{ url_for('static', filename='javascript/home.js') }}"></script>
+ 
+</body>
+</html>

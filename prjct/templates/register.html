@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style/logReg/register.css') }}">
+</head>
+<body>
+
+    <!-- Background image injected via Flask url_for -->
+    <style>
+        body::before {
+            background-image: url("{{ url_for('static', filename='img/login/background.png') }}");
+        }
+    </style>
+
+    <!-- Animated background canvas -->
+    <canvas id="flowerCanvas"></canvas>
+
+    <div class="register-holder">
+        <div class="flower-deco">🌸</div>
+        <h2 class="create-account">Create Account</h2>
+
+        <form action="/register" method="POST">
+            <input name="username" placeholder="Enter Username" required><br>
+
+            <div class="password-wrapper">
+                <input name="password" type="password" id="reg-password" placeholder="Enter Password" required minlength="8">
+                <span class="eye-icon" onclick="toggleRegPassword()">👁</span>
+            </div>
+
+            <div id="password-rules">
+                <p id="rule-length" class="rule">✦ At least 8 characters</p>
+                <p id="rule-upper" class="rule">✦ At least one uppercase letter</p>
+                <p id="rule-lower" class="rule">✦ At least one lowercase letter</p>
+                <p id="rule-number" class="rule">✦ At least one number</p>
+                <p id="rule-symbol" class="rule">✦ At least one symbol</p>
+            </div>
+
+            <button type="submit" class="button-register">Register</button>
+        </form>
+
+        <p class="back">Back to <a href="/" class="login-link">Login</a></p>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+
+        {% if success %}
+        <p class="success-msg">{{ success }}</p>
+        {% endif %}
+    </div>
+
+    <script src="{{ url_for('static', filename='javascript/register.js') }}"></script>
+
+</body>
+</html>

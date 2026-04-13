@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>February</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style/deanCalendar/calendar.css') }}">
+</head>
+
+<body>
+
+    <canvas id="petalCanvas"></canvas>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="calendar-container">
+
+        <header class="calendar-header">
+            <div class="header-column left">
+                <div class="title-area">
+                    <h1>Academic Calendar</h1>
+                    <p>February 2026</p>
+                </div>
+                <a href="/calendar/january" class="nav-btn">← Back</a>
+            </div>
+
+            <div class="header-column right">
+                <div class="dash-area">
+                    <a href="/home" class="home-btn">Dashboard</a>
+                </div>
+                <a href="/calendar/march" class="nav-btn">Next →</a>
+            </div>
+        </header>
+
+        <div class="calendar-board">
+            <div class="day-label">Mon</div>
+            <div class="day-label">Tue</div>
+            <div class="day-label">Wed</div>
+            <div class="day-label">Thu</div>
+            <div class="day-label">Fri</div>
+            <div class="day-label">Sat</div>
+            <div class="day-label">Sun</div>
+
+            <div class="cell empty"></div>
+            <div class="cell empty"></div>
+            <div class="cell empty"></div>
+            <div class="cell empty"></div>
+            <div class="cell empty"></div>
+            <div class="cell weekend empty"></div>
+            <div class="cell weekend"><span class="date">1</span></div>
+            <div class="cell"><span class="date">2</span></div>
+            <div class="cell"><span class="date">3</span></div>
+            <div class="cell"><span class="date">4</span></div>
+            <div class="cell"><span class="date">5</span></div>
+            <div class="cell"><span class="date">6</span></div>
+            <div class="cell weekend"><span class="date">7</span></div>
+            <div class="cell weekend"><span class="date">8</span></div>
+            <div class="cell"><span class="date">9</span></div>
+            <div class="cell has-event"><span class="date">10</span><span class="event-tag pink">Science Fair 🔬</span></div>
+            <div class="cell"><span class="date">11</span></div>
+            <div class="cell"><span class="date">12</span></div>
+            <div class="cell weekend"><span class="date">13</span></div>
+            <div class="cell has-event weekend"><span class="date">14</span><span class="event-tag blue">Valentine's 💕</span></div>
+            <div class="cell"><span class="date">15</span></div>
+            <div class="cell"><span class="date">16</span></div>
+            <div class="cell"><span class="date">17</span></div>
+            <div class="cell"><span class="date">18</span></div>
+            <div class="cell"><span class="date">19</span></div>
+            <div class="cell weekend"><span class="date">20</span></div>
+            <div class="cell weekend"><span class="date">21</span></div>
+            <div class="cell"><span class="date">22</span></div>
+            <div class="cell"><span class="date">23</span></div>
+            <div class="cell"><span class="date">24</span></div>
+            <div class="cell"><span class="date">25</span></div>
+            <div class="cell"><span class="date">26</span></div>
+            <div class="cell weekend"><span class="date">27</span></div>
+            <div class="cell weekend"><span class="date">28</span></div>
+        </div>
+
+    </div>
+
+    <script>
+    /* ── Page exit transition on nav links ── */
+    document.querySelectorAll('.nav-btn, .home-btn').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            document.body.classList.add('page-exit');
+            setTimeout(() => { window.location.href = href; }, 380);
+        });
+    });
+
+    /* ── Floating Petals ── */
+    const canvas = document.getElementById('petalCanvas');
+    const ctx    = canvas.getContext('2d');
+
+    function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    const colors = ['#ffb6c1','#ff8fab','#ffc8dd','#ffafcc','#ffd6e0','#ff99b4','#f9c6cf','#f48fb1'];
+
+    class Petal {
+        constructor() { this.reset(true); }
+        reset(initial = false) {
+            this.x        = Math.random() * canvas.width;
+            this.y        = initial ? Math.random() * canvas.height : -40;
+            this.size     = 4 + Math.random() * 9;
+            this.speedY   = 0.25 + Math.random() * 0.8;
+            this.speedX   = (Math.random() - 0.5) * 0.5;
+            this.rot      = Math.random() * Math.PI * 2;
+            this.rotSpd   = (Math.random() - 0.5) * 0.025;
+            this.swing    = Math.random() * Math.PI * 2;
+            this.swingSpd = 0.007 + Math.random() * 0.015;
+            this.swingAmt = 0.5 + Math.random() * 1.1;
+            this.opacity  = 0.18 + Math.random() * 0.35;
+            this.color    = colors[Math.floor(Math.random() * colors.length)];
+            this.type     = Math.floor(Math.random() * 2);
+        }
+        update() {
+            this.swing += this.swingSpd;
+            this.x     += Math.sin(this.swing) * this.swingAmt + this.speedX;
+            this.y     += this.speedY;
+            this.rot   += this.rotSpd;
+            if (this.y > canvas.height + 40) this.reset();
+        }
+        draw() {
+            ctx.save();
+            ctx.translate(this.x, this.y);
+            ctx.rotate(this.rot);
+            ctx.globalAlpha = this.opacity;
+            ctx.fillStyle   = this.color;
+            ctx.beginPath();
+            if (this.type === 0) {
+                ctx.moveTo(0, -this.size);
+                ctx.bezierCurveTo( this.size*.8,-this.size*.5,  this.size*.9, this.size*.5, 0, this.size);
+                ctx.bezierCurveTo(-this.size*.9, this.size*.5, -this.size*.8,-this.size*.5, 0,-this.size);
+            } else {
+                ctx.ellipse(0, 0, this.size * 0.42, this.size, 0, 0, Math.PI * 2);
+            }
+            ctx.fill();
+            ctx.restore();
+        }
+    }
+
+    const petals = Array.from({ length: 28 }, () => new Petal());
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        petals.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    /* ── Staggered cell entrance ── */
+    const cells = document.querySelectorAll('.cell:not(.empty)');
+    cells.forEach((cell, i) => {
+        cell.style.animationDelay = `${i * 0.018}s`;
+        cell.classList.add('cell-animate');
+    });
+    </script>
+
+</body>
+</html>

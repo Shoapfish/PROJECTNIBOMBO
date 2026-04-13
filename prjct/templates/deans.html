@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management - Exact Colleges</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style/deanCalendar/dean.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <header class="rate-header-holder">
+        <h1 class="rate-header">Exact Colleges of Asia Faculty</h1>
+        <p class="rate-para">Current Instructors & Deans in Exact Colleges of Asia</p>
+        <a href="{{ url_for('home_dashboard') }}" class="back-link">Dashboard</a>
+    </header>
+
+    <div class="main-content">
+        <div class="border-holder">
+            <aside class="program-list" id="program-sidebar"></aside>
+        </div>
+
+        <section class="details-panel">
+            <h2 id="display-name">Select a Program</h2>
+            <p id="display-category" style="color: #64748b; margin-top: -10px;">Choose a department from the left</p>
+            
+            <div id="faculty-section" style="display: none; margin-top: 25px;">
+                <div class="toggle-buttons">
+                    <button id="btn-instructors" class="toggle-btn active" onclick="switchView('instructors')">Instructors</button>
+                    <button id="btn-dean" class="toggle-btn" onclick="switchView('dean')">Dean</button>
+                </div>
+
+                <div id="faculty-container"></div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='javascript/deans.js') }}"></script>
+</body>
+</html>

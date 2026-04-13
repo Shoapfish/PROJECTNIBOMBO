@@ -1,0 +1,224 @@
+body {
+    background-color: #fff5f7;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Header UI - Matching rates.html glass effect */
+.rate-header-holder {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1.5px solid rgba(244, 63, 94, 0.2); 
+    box-shadow: 0 15px 35px rgba(244, 63, 94, 0.08);
+    margin-bottom: 40px;
+}
+
+.rate-header {
+    color: #101cc4;
+    font-size: 3rem;
+    margin: 0;
+}
+
+.rate-para {
+    color: #c51936;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.back-link {
+    color: #f43f5e;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 25px;
+}
+.back-link:hover{
+    color:rgb(86, 62, 218);
+    transition: color 0.2s ease;
+}
+
+/* Layout */
+.main-content {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* Sidebar Container Border - Matching the "Programs" box in rates.html */
+.border-holder {
+    background: white;
+    padding: 20px;
+    border-radius: 25px;
+    border: 1.5px solid rgba(244, 63, 94, 0.2); /* Pink border from rates.html */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.02);
+}
+
+.program-list {
+    width: 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 70vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Sidebar Program Cards */
+.program-card {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid #f1f5f9;
+}
+
+/* Hover: Light blue background and blue border like your screenshot */
+.program-card:hover {
+    background-color: #eff6ff; 
+    border-color: #3b82f6;
+    transform: translateX(5px);
+}
+
+.program-card.active {
+    background-color: #eff6ff;
+    border: 2px solid #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    background: #f8fafc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    border: 1px solid #edf2f7;
+}
+
+.info strong {
+    display: block;
+    font-size: 0.9rem;
+    color: #1e293b;
+}
+
+.info span {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+/* Details Panel with Pink Border */
+.details-panel {
+    flex: 1;
+    background: white;
+    border-radius: 30px;
+    padding: 40px;
+    border: 1.5px solid rgba(244, 63, 94, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+/* Toggle Buttons */
+.toggle-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    background: white;
+    cursor: pointer;
+    font-weight: 700;
+    transition: 0.3s;
+    color: #64748b;
+}
+
+.toggle-btn.active {
+    background: #f43f5e;
+    color: white;
+    border-color: #f43f5e;
+}
+
+/* Faculty Cards */
+.faculty-card {
+    background: #ffffff;
+    border: 1.5px solid rgba(244, 63, 94, 0.15); /* The pink card border */
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.card-header-flex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    background: #f43f5e;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.role-text {
+    color: #f43f5e;
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.highlight-text {
+    color: #f43f5e;
+    font-weight: 500;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #f1f5f9;
+    margin: 15px 0;
+}
+
+small {
+    color: #94a3b8;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Custom Scrollbar for Sidebar */
+.program-list::-webkit-scrollbar {
+    width: 6px;
+}
+.program-list::-webkit-scrollbar-thumb {
+    background: #aab4bd;
+    border-radius: 10px;
+}
+.program-list::-webkit-scrollbar-track {
+    background: #fdf2f4;
+    border-radius: 10px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='Style/Search/search.css') }}">
+</head>
+<body>
+
+    <canvas id="petalCanvas"></canvas>
+
+    <!-- Floating blobs for atmosphere -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <div class="search-wrapper">
+
+        <div class="search-part">
+
+            <div class="search-icon-ring">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <h2 class="search-header">What are you<br><span class="header-accent">looking for?</span></h2>
+            <p class="search-sub">Search through courses, deans, instructors & more</p>
+
+            <form id="searchForm" class="search-form">
+                <div class="search-input-section">
+                    <div class="input-wrapper">
+                        <span class="input-icon">✦</span>
+                        <input id="searchInput" name="query" placeholder="Type to search..." autocomplete="off">
+                    </div>
+                    <select id="filterSelect">
+                        <option value="all">All</option>
+                        <option value="students">Students</option>
+                        <option value="deans">Deans & Faculty</option>
+                        <option value="courses">Courses</option>
+                    </select>
+                </div>
+                <button type="submit" class="search-button">
+                    <span class="btn-text">Search</span>
+                    <span class="btn-shimmer"></span>
+                </button>
+            </form>
+
+<a href="{{ url_for('home_dashboard') }}" class="search-link"><span class="link-arrow">←</span> Back to Dashboard</a>
+        </div>
+
+        <div class="results-section">
+            <div class="results-header">
+                <span id="resultsCount">0 results</span>
+                <div class="loading" id="loading"></div>
+            </div>
+            <div id="resultsContainer" class="results-container"></div>
+            <div id="noResults" class="no-results">No results found 🌸</div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='javascript/search.js') }}"></script>
+</body>
+</html>
