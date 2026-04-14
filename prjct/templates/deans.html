@@ -4,38 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Faculty Management - Exact Colleges</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='Style/deanCalendar/dean.css') }}">
 </head>
 <body>
 
-<div class="container">
+  <!-- Floating petals background -->
+  <div class="petals-bg" id="petals-bg"></div>
+
+  <div class="container">
     <header class="rate-header-holder">
-        <h1 class="rate-header">Exact Colleges of Asia Faculty</h1>
-        <p class="rate-para">Current Instructors & Deans in Exact Colleges of Asia</p>
-        <a href="{{ url_for('home_dashboard') }}" class="back-link">Dashboard</a>
+      <div class="header-left">
+        <span class="school-badge">👨‍🏫</span>
+        <div>
+          <h1 class="rate-header">Faculty & Deans</h1>
+          <p class="rate-subheader">Current Instructors & Deans in Exact Colleges of Asia</p>
+        </div>
+      </div>
+      <a href="{{ url_for('home_dashboard') }}" class="back-link">← Dashboard</a>
     </header>
 
     <div class="main-content">
-        <div class="border-holder">
-            <aside class="program-list" id="program-sidebar"></aside>
+
+      <!-- Sidebar -->
+      <aside class="program-list" id="program-sidebar">
+       
+        <!-- Cards injected by JS -->
+      </aside>
+
+      <!-- Details Panel -->
+      <section class="details-panel">
+
+        <!-- Empty state -->
+        <div class="empty-state" id="empty-state">
+          <div class="empty-icon">🌸</div>
+          <h2>Select a Program</h2>
+          <p>Choose a department from the left to view its faculty members.</p>
         </div>
 
-        <section class="details-panel">
-            <h2 id="display-name">Select a Program</h2>
-            <p id="display-category" style="color: #64748b; margin-top: -10px;">Choose a department from the left</p>
-            
-            <div id="faculty-section" style="display: none; margin-top: 25px;">
-                <div class="toggle-buttons">
-                    <button id="btn-instructors" class="toggle-btn active" onclick="switchView('instructors')">Instructors</button>
-                    <button id="btn-dean" class="toggle-btn" onclick="switchView('dean')">Dean</button>
-                </div>
-
-                <div id="faculty-container"></div>
+        <!-- Faculty content (hidden until program selected) -->
+        <div id="faculty-section" style="display: none;">
+          <div class="details-header">
+            <div class="program-icon-large" id="display-icon">🩺</div>
+            <div>
+              <h2 id="display-name">B.S. Nursing</h2>
+              <p id="display-category">Health Sciences</p>
             </div>
-        </section>
-    </div>
-</div>
+          </div>
 
-<script src="{{ url_for('static', filename='javascript/deans.js') }}"></script>
+          <!-- Toggle buttons -->
+          <div class="toggle-buttons">
+            <button id="btn-instructors" class="toggle-btn active" onclick="switchView('instructors')">
+              <span class="toggle-icon">👩‍🏫</span> Instructors
+            </button>
+            <button id="btn-dean" class="toggle-btn" onclick="switchView('dean')">
+              <span class="toggle-icon">🎓</span> Dean
+            </button>
+          </div>
+
+          <!-- Faculty cards rendered here -->
+          <div id="faculty-container"></div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='javascript/deans.js') }}"></script>
 </body>
 </html>

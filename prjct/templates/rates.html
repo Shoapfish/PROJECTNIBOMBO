@@ -1,170 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>School Programs - Exact Colleges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='Style/homeRates/rates.css') }}">
-
 </head>
-
 <body>
+
+  <!-- Floating petals background -->
+  <div class="petals-bg" id="petals-bg"></div>
 
   <div class="container">
     <header class="rate-header-holder">
-      <h1 class="rate-header">EXACT COLLEGES OF ASIA PROGRAMS</h1>
-      <a href="{{ url_for('home_dashboard') }}" class="back-link">Dashboard</a> 
+      <div class="header-left">
+        <span class="school-badge">🌸</span>
+        <div>
+          <h1 class="rate-header">Exact Colleges of Asia</h1>
+          <p class="rate-subheader">Academic Programs Overview</p>
+        </div>
+      </div>
+      <a href="{{ url_for('home_dashboard') }}" class="back-link">
+          <span class="link-arrow">←</span> Back to Dashboard
+      </a>
     </header>
 
     <div class="main-content">
-      <div class="border-holder">
-        <aside class="program-list" id="program-sidebar">
-          <!-- College Programs -->
-          <div class="program-card active" data-name="B.S. NURSING">
-            <div class="icon-circle">🩺</div>
-            <div class="info"><strong>B.S. NURSING</strong><span>Health Sciences</span></div>
-          </div>
-          <div class="program-card" data-name="B.S. MARINE ENGINEERING">
-            <div class="icon-circle">⚓</div>
-            <div class="info"><strong>B.S. MARINE ENGINEERING</strong><span>Engineering</span></div>
-          </div>
-          <div class="program-card" data-name="B.S. MARINE TRANSPORTATION">
-            <div class="icon-circle">🚢</div>
-            <div class="info"><strong>B.S. MARINE TRANSPORTATION</strong><span>Engineering</span></div>
-          </div>
-          <div class="program-card" data-name="B.S. CRIMINOLOGY">
-            <div class="icon-circle">⚖️</div>
-            <div class="info"><strong>B.S. CRIMINOLOGY</strong><span>Social Sciences</span></div>
-          </div>
-          <div class="program-card" data-name="B.S. TOURISM MANAGEMENT">
-            <div class="icon-circle">✈️</div>
-            <div class="info"><strong>B.S. TOURISM MANAGEMENT</strong><span>Business</span></div>
-          </div>
-          <div class="program-card" data-name="B.S. INFORMATION SYSTEM">
-            <div class="icon-circle">💻</div>
-            <div class="info"><strong>B.S. INFORMATION SYSTEM</strong><span>Technology</span></div>
-          </div>
-          <div class="program-card" data-name="B.S. ENTREPRENEURSHIP">
-            <div class="icon-circle">💼</div>
-            <div class="info"><strong>B.S. ENTREPRENEURSHIP</strong><span>Business</span></div>
-          </div>
-          <div class="program-card" data-name="B.S. MANAGEMENT ACCOUNTING">
-            <div class="icon-circle">📊</div>
-            <div class="info"><strong>B.S. MANAGEMENT ACCOUNTING</strong><span>Business</span></div>
-          </div>
-          <div class="program-card" data-name="B. EARLY CHILDHOOD EDUCATION">
-            <div class="icon-circle">🧸</div>
-            <div class="info"><strong>B. EARLY CHILDHOOD EDUCATION</strong><span>Education</span></div>
-          </div>
-          <div class="program-card" data-name="B. TECH-VOC TEACHER EDUCATION">
-            <div class="icon-circle">🛠️</div>
-            <div class="info"><strong>B. TECH-VOC TEACHER EDUCATION</strong><span>Education</span></div>
-          </div>
 
-          <div class="program-card" data-name="GAS">
-            <div class="icon-circle">📚</div>
-            <div class="info"><strong>GAS</strong><span>General Academic Strand</span></div>
-          </div>
-          <div class="program-card" data-name="ABM">
-            <div class="icon-circle">📈</div>
-            <div class="info"><strong>ABM</strong><span>Accountancy & Business</span></div>
-          </div>
-          <div class="program-card" data-name="HUMSS">
-            <div class="icon-circle">🏛️</div>
-            <div class="info"><strong>HUMSS</strong><span>Humanities & Social Science</span></div>
-          </div>
-          <div class="program-card" data-name="STEM">
-            <div class="icon-circle">🧪</div>
-            <div class="info"><strong>STEM</strong><span>Science & Technology</span></div>
-          </div>
-        </aside>
-      </div>
+      <!-- Sidebar -->
+      <aside class="program-list" id="program-sidebar">
+        <div class="sidebar-label">College Programs</div>
 
+        <div class="program-card active" data-name="B.S. NURSING">
+          <div class="icon-circle">🩺</div>
+          <div class="info"><strong>B.S. Nursing</strong><span>Health Sciences</span></div>
+        </div>
+        <div class="program-card" data-name="B.S. MARINE ENGINEERING">
+          <div class="icon-circle">⚓</div>
+          <div class="info"><strong>B.S. Marine Engineering</strong><span>Engineering</span></div>
+        </div>
+        <div class="program-card" data-name="B.S. MARINE TRANSPORTATION">
+          <div class="icon-circle">🚢</div>
+          <div class="info"><strong>B.S. Marine Transportation</strong><span>Engineering</span></div>
+        </div>
+        <div class="program-card" data-name="B.S. CRIMINOLOGY">
+          <div class="icon-circle">⚖️</div>
+          <div class="info"><strong>B.S. Criminology</strong><span>Social Sciences</span></div>
+        </div>
+        <div class="program-card" data-name="B.S. TOURISM MANAGEMENT">
+          <div class="icon-circle">✈️</div>
+          <div class="info"><strong>B.S. Tourism Management</strong><span>Business</span></div>
+        </div>
+        <div class="program-card" data-name="B.S. INFORMATION SYSTEM">
+          <div class="icon-circle">💻</div>
+          <div class="info"><strong>B.S. Information System</strong><span>Technology</span></div>
+        </div>
+        <div class="program-card" data-name="B.S. ENTREPRENEURSHIP">
+          <div class="icon-circle">💼</div>
+          <div class="info"><strong>B.S. Entrepreneurship</strong><span>Business</span></div>
+        </div>
+        <div class="program-card" data-name="B.S. MANAGEMENT ACCOUNTING">
+          <div class="icon-circle">📊</div>
+          <div class="info"><strong>B.S. Management Accounting</strong><span>Business</span></div>
+        </div>
+        <div class="program-card" data-name="B. EARLY CHILDHOOD EDUCATION">
+          <div class="icon-circle">🧸</div>
+          <div class="info"><strong>B. Early Childhood Education</strong><span>Education</span></div>
+        </div>
+        <div class="program-card" data-name="B. TECH-VOC TEACHER EDUCATION">
+          <div class="icon-circle">🛠️</div>
+          <div class="info"><strong>B. Tech-Voc Teacher Education</strong><span>Education</span></div>
+        </div>
+
+        <div class="sidebar-label" style="margin-top: 12px;">Senior High School</div>
+
+        <div class="program-card" data-name="GAS">
+          <div class="icon-circle">📚</div>
+          <div class="info"><strong>GAS</strong><span>General Academic Strand</span></div>
+        </div>
+        <div class="program-card" data-name="ABM">
+          <div class="icon-circle">📈</div>
+          <div class="info"><strong>ABM</strong><span>Accountancy & Business</span></div>
+        </div>
+        <div class="program-card" data-name="HUMSS">
+          <div class="icon-circle">🏛️</div>
+          <div class="info"><strong>HUMSS</strong><span>Humanities & Social Science</span></div>
+        </div>
+        <div class="program-card" data-name="STEM">
+          <div class="icon-circle">🧪</div>
+          <div class="info"><strong>STEM</strong><span>Science & Technology</span></div>
+        </div>
+      </aside>
+
+      <!-- Details Panel -->
       <section class="details-panel">
-        <h2 id="display-name">B.S. NURSING</h2>
-        <p id="display-category" style="color: #64748b; margin-top: -10px;">Health Sciences</p>
+        <div class="details-header">
+          <div class="program-icon-large" id="display-icon">🩺</div>
+          <div>
+            <h2 id="display-name">B.S. Nursing</h2>
+            <p id="display-category">Health Sciences</p>
+          </div>
+        </div>
 
+        <!-- Top row: Active Students + Graduation Rate -->
         <div class="stats-grid">
-          <div class="stat-box passing-box">
-            <span>📈 Passing Rate</span>
-            <div class="stat-value" id="pass-rate">92%</div>
+          <!-- Active Students card -->
+          <div class="stat-card active-card">
+            <div class="stat-label">👥 Active Students</div>
+            <div class="stat-value" id="active-count">2,000</div>
+            <div class="stat-sublabel">currently enrolled</div>
+            <div class="student-dots" id="student-dots"></div>
           </div>
-          <div class="stat-box active-box">
-            <span>👥 Active Students</span>
-            <div class="stat-value" id="active-count">2000</div>
+
+          <!-- Graduation Rate card -->
+          <div class="stat-card grad-card">
+            <div class="stat-label">📈 Graduation Rate</div>
+            <div class="stat-ring">
+              <svg viewBox="0 0 80 80" class="ring-svg">
+                <circle cx="40" cy="40" r="32" class="ring-bg"/>
+                <circle cx="40" cy="40" r="32" class="ring-fill" id="ring-circle"/>
+              </svg>
+              <div class="ring-text" id="pass-rate">92%</div>
+            </div>
+            <div class="stat-sublabel">of final year students</div>
           </div>
         </div>
 
-        <div class="year-breakdown">
-          <h3>Students by Year</h3>
-          <div class="year-row" id="row-1"><span>1st Year</span><strong class="year-count">500</strong></div>
-          <div class="year-row" id="row-2"><span>2nd Year</span><strong class="year-count">500</strong></div>
-          <div class="year-row" id="row-3"><span>3rd Year</span><strong class="year-count">500</strong></div>
-          <div class="year-row" id="row-4"><span>4th Year</span><strong class="year-count">500</strong></div>
+        <!-- Graduate stats row -->
+        <div class="grad-stats-row">
+          <div class="grad-stat-card this-year-card">
+            <div class="grad-stat-icon">🎓</div>
+            <div class="grad-stat-body">
+              <div class="grad-stat-label">This Year's Graduates</div>
+              <div class="grad-stat-value" id="this-year-grads">460</div>
+              <div class="grad-stat-sub">from the graduating batch</div>
+            </div>
+            <div class="grad-stat-badge" id="this-year-badge">+92%</div>
+          </div>
+
+          <div class="grad-stat-card total-card">
+            <div class="grad-stat-icon">🏆</div>
+            <div class="grad-stat-body">
+              <div class="grad-stat-label">Total Graduates</div>
+              <div class="grad-stat-value" id="total-grads">7,360</div>
+              <div class="grad-stat-sub">all-time alumni</div>
+            </div>
+            <div class="grad-stat-badge total-badge" id="total-badge">All-Time</div>
+          </div>
         </div>
+
+        <!-- Year Breakdown -->
+        <div class="year-breakdown">
+          <h3>Students by Year Level</h3>
+          <div class="year-bars" id="year-bars">
+            <div class="year-row" id="row-1">
+              <span class="year-label">1st Year</span>
+              <div class="bar-wrap">
+                <div class="bar-fill" id="bar-1"></div>
+              </div>
+              <strong class="year-count" id="count-1">500</strong>
+            </div>
+            <div class="year-row" id="row-2">
+              <span class="year-label">2nd Year</span>
+              <div class="bar-wrap">
+                <div class="bar-fill" id="bar-2"></div>
+              </div>
+              <strong class="year-count" id="count-2">500</strong>
+            </div>
+            <div class="year-row" id="row-3">
+              <span class="year-label">3rd Year</span>
+              <div class="bar-wrap">
+                <div class="bar-fill" id="bar-3"></div>
+              </div>
+              <strong class="year-count" id="count-3">500</strong>
+            </div>
+            <div class="year-row" id="row-4">
+              <span class="year-label">4th Year</span>
+              <div class="bar-wrap">
+                <div class="bar-fill" id="bar-4"></div>
+              </div>
+              <strong class="year-count" id="count-4">500</strong>
+            </div>
+          </div>
+        </div>
+
+
       </section>
+
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const programData = {
-        "B.S. NURSING": { rate: "92%", active: 2000, y: [500, 500, 500, 500], cat: "Health Sciences", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B.S. MARINE ENGINEERING": { rate: "88%", active: 1200, y: [300, 300, 300, 300], cat: "Engineering", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B.S. MARINE TRANSPORTATION": { rate: "85%", active: 1500, y: [400, 400, 400, 300], cat: "Engineering", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B.S. CRIMINOLOGY": { rate: "79%", active: 800, y: [200, 200, 200, 200], cat: "Social Sciences", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B.S. TOURISM MANAGEMENT": { rate: "95%", active: 600, y: [150, 150, 150, 150], cat: "Business", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B.S. INFORMATION SYSTEM": { rate: "90%", active: 450, y: [120, 110, 110, 110], cat: "Technology", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B.S. ENTREPRENEURSHIP": { rate: "94%", active: 300, y: [75, 75, 75, 75], cat: "Business", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B.S. MANAGEMENT ACCOUNTING": { rate: "82%", active: 400, y: [100, 100, 100, 100], cat: "Business", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B. EARLY CHILDHOOD EDUCATION": { rate: "98%", active: 200, y: [50, 50, 50, 50], cat: "Education", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "B. TECH-VOC TEACHER EDUCATION": { rate: "91%", active: 180, y: [45, 45, 45, 45], cat: "Education", labels: ["1st Year", "2nd Year", "3rd Year", "4th Year"] },
-        "GAS": { rate: "100%", active: 300, y: [150, 150, 0, 0], cat: "Senior High", labels: ["Grade 11", "Grade 12", "", ""] },
-        "ABM": { rate: "100%", active: 400, y: [200, 200, 0, 0], cat: "Senior High", labels: ["Grade 11", "Grade 12", "", ""] },
-        "HUMSS": { rate: "100%", active: 550, y: [275, 275, 0, 0], cat: "Senior High", labels: ["Grade 11", "Grade 12", "", ""] },
-        "STEM": { rate: "100%", active: 1000, y: [500, 500, 0, 0], cat: "Senior High", labels: ["Grade 11", "Grade 12", "", ""] }
-      };
-
-      const cards = document.querySelectorAll('.program-card');
-      const displayName = document.getElementById('display-name');
-      const displayCat = document.getElementById('display-category');
-      const passRate = document.getElementById('pass-rate');
-      const activeCount = document.getElementById('active-count');
-      const yearFields = document.querySelectorAll('.year-count');
-      const yearRows = document.querySelectorAll('.year-row');
-
-      cards.forEach(card => {
-        card.addEventListener('click', function () {
-          const name = this.dataset.name;
-          const data = programData[name];
-          if (!data) return;
-
-          cards.forEach(c => c.classList.remove('active'));
-          this.classList.add('active');
-
-          displayName.textContent = name;
-          displayCat.textContent = data.cat;
-          passRate.textContent = data.rate;
-          activeCount.textContent = data.active;
-
-          data.y.forEach((val, i) => {
-            const labelSpan = yearRows[i].querySelector('span');
-            if (val === 0 && data.cat === "Senior High") {
-              yearRows[i].style.display = 'none';
-            } else {
-              yearRows[i].style.display = 'flex';
-              labelSpan.textContent = data.labels[i];
-              yearFields[i].textContent = val + " students";
-            }
-          });
-        });
-      });
-
-      if (cards.length > 0) cards[0].click();
-    });
-  </script>
-
+  <script src="{{ url_for('static', filename='javascript/rates.js') }}"></script>
 </body>
-
 </html>
