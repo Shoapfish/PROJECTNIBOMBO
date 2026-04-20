@@ -1,8 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Exact</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exact Colleges of Asia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/programs/program.css') }}">
 </head>
 <body>
-    <h1>Exact Program</h1>
-    <p>This is the Exact program page.</p>
+
+  <div class="glow-blue"></div>
+  <div class="glow-pink"></div>
+
+  <div class="stage">
+
+    <!-- Halo rings -->
+    <div class="rings">
+      <div class="ring ring-3"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-1"></div>
+    </div>
+
+    <!-- Rotating logo -->
+    <div class="logo-wrap">
+      <div class="spin-outer"></div>
+      <div class="spin-inner"></div>
+      <img class="logo-img" src="{{ url_for('static', filename='img/homepage/Exact.jpg') }}" alt="Exact Colleges of Asia">
+      <div class="sparkle sp1"></div>
+      <div class="sparkle sp2"></div>
+      <div class="sparkle sp3"></div>
+      <div class="sparkle sp4"></div>
+    </div>
+
+    <!-- Text -->
+    <div class="title-block">
+      <h1 class="school-name">Exact <em>Colleges</em> of Asia</h1>
+      <p class="tagline">Moving Forward · Claiming Victory · Since 2011</p>
+      <div class="gold-line"></div>
+    </div>
+
+  </div>
+
+</body>
+</html>

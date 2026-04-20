@@ -1,4 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Information System Program</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Information Systems</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/programs/program.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="glow-blue"></div>
+  <div class="glow-pink"></div>
+
+  <div class="stage">
+    <div class="rings">
+      <div class="ring ring-3"></div>
+      <div class="ring ring-2"></div>
+      <div class="ring ring-1"></div>
+    </div>
+
+    <div class="logo-wrap">
+      <div class="spin-outer"></div>
+      <div class="spin-inner"></div>
+      <img class="logo-img" src="{{ url_for('static', filename='img/homepage/system.jpg') }}" alt="Information Systems">
+      <div class="sparkle sp1"></div>
+      <div class="sparkle sp2"></div>
+      <div class="sparkle sp3"></div>
+      <div class="sparkle sp4"></div>
+    </div>
+
+    <div class="title-block">
+      <h1 class="school-name">Bachelor of Science in <em>Information Systems</em></h1>
+      <p class="tagline">Exact Colleges of Asia · Est. 2011</p>
+      <div class="gold-line"></div>
+    </div>
+  </div>
+
+</body>
+</html>
